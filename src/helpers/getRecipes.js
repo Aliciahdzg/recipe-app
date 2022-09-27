@@ -1,15 +1,19 @@
 
 
-export const getRecipes = async( text ) => {
-    
-    const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=e08446d32ec646d48b5d6cfd47188096&query=${text}`
+export const getRecipes = async( query = '' ) => {
+    console.log(query);
+
+    const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=e08446d32ec646d48b5d6cfd47188096&sort=random&query=${query}`
+    // const url = 'https://api.spoonacular.com/recipes/complexSearch?apiKey=e08446d32ec646d48b5d6cfd47188096&sort=random'
+
     const res = await fetch(url);
-    const { recipes }= await res.json();
-    const resultRecipes = recipes.map( recipe => ({
+    // console.log(res)
+    const  { results }  = await res.json();
+    const recipes = results.map( recipe => ({
         id: recipe.id,
         title: recipe.title,
-        url: recipe.image
+        url: recipe.image,
     }));
     
-    return resultRecipes;
+    return recipes;
 }

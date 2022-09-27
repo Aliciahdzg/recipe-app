@@ -5,14 +5,19 @@ import { getRecipes } from './helpers/getRecipes';
 function App() {
 
   const [recipes, setRecipes] = useState([]);
+  const [query, setQuery] = useState([]);
 
-  const onNewRecipes = (newRecipe) => {
-    setRecipes([newRecipe]);
+  const onNewSearch = ( newQuery ) => {
+    setQuery( newQuery );
+  }
+  const allRecipes = async(searhQuery) => {
+     const res = await getRecipes(searhQuery)
+     setRecipes(res)
   }
 
 
   useEffect(() => {
-    getRecipes(recipes)
+    allRecipes(query);
   }, [])
  
 
@@ -20,7 +25,7 @@ function App() {
     <>
       <h1 >Recipes</h1>
       <hr />
-      <SearchRecipes onNewRecipes={(value) => onNewRecipes(value)} />
+      <SearchRecipes  onNewSearch={onNewSearch} />
       <CardRecipe recipes={recipes} />
       
     </>

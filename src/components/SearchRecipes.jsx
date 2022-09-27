@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-export const SearchRecipes = ({ onNewRecipes }) => {
+export const SearchRecipes = ({ onNewSearch }) => {
 
     const [inputValue, setInputValue] = useState('');
 
@@ -11,8 +11,9 @@ export const SearchRecipes = ({ onNewRecipes }) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        setInputValue('');
-        onNewRecipes(inputValue.trim());
+        // setInputValue('');
+        onNewSearch(inputValue.trim());
+        setInputValue('')
     };
 
   return (
@@ -23,7 +24,7 @@ export const SearchRecipes = ({ onNewRecipes }) => {
           value = {inputValue}
           onChange={onInputChange}
         />
-        <button>Search</button>
+        <button onClick={(value => onNewSearch(value))} >Search</button>
         <button>Reset</button>
     </form>
   )

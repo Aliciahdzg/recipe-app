@@ -1,6 +1,7 @@
 
 
 export const CardRecipe = ({ recipes }) => {
+  // console.log(recipes)
     
   return (
     <div>
@@ -9,11 +10,7 @@ export const CardRecipe = ({ recipes }) => {
         <div key={recipe.id}>
           <h4>{recipe.title}</h4>
           <div>
-            <img src={recipe.image} alt={recipe.sourceName} />
-          </div>
-          <div>
-            <p> Ready in {recipe.readyInMinutes} minutes</p>
-            <p>Servings {recipe.servings} </p>
+            <img src={recipe.url} alt={recipe.sourceName} />
           </div>
         </div>
         ))
