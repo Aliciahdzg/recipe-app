@@ -17,7 +17,7 @@ export const SearchRecipes = ({ onNewSearch }) => {
     };
 
   return (
-    <form className="input-group" onSubmit={onSubmit}>
+    <form className="input-group px-4 w-50" onSubmit={onSubmit}>
         <input 
           className="form-control"
           type="text" 
