@@ -13,19 +13,30 @@ export const SearchRecipes = ({ onNewSearch }) => {
         e.preventDefault();
         // setInputValue('');
         onNewSearch(inputValue.trim());
-        setInputValue('')
+        // setInputValue('')
     };
 
   return (
-    <form className="search-recipes" onSubmit={onSubmit}>
+    <form className="input-group" onSubmit={onSubmit}>
         <input 
+          className="form-control"
           type="text" 
           placeholder='Search for recipes...' 
           value = {inputValue}
           onChange={onInputChange}
         />
-        <button onClick={(value => onNewSearch(value))} >Search</button>
-        <button>Reset</button>
+        <button 
+          onClick={value => onNewSearch(value)}
+          className="btn btn-outline-secondary"
+        >
+          Search
+        </button>
+        <button 
+          onClick={() => setInputValue('')}
+          className="btn btn-outline-secondary"
+        >
+          Reset
+        </button>
     </form>
   )
 }

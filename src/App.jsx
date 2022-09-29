@@ -5,7 +5,7 @@ import { getRecipes } from './helpers/getRecipes';
 function App() {
 
   const [recipes, setRecipes] = useState([]);
-  const [query, setQuery] = useState([]);
+  const [query, setQuery] = useState('');
 
   const onNewSearch = ( newQuery ) => {
     setQuery( newQuery );
@@ -18,12 +18,12 @@ function App() {
 
   useEffect(() => {
     allRecipes(query);
-  }, [])
+  }, [query])
  
 
   return (
     <>
-      <h1 >Recipes</h1>
+      <h1 className="display-1 text-succes  ">Recipes</h1>
       <hr />
       <SearchRecipes  onNewSearch={onNewSearch} />
       <CardRecipe recipes={recipes} />
