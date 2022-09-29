@@ -1,21 +1,21 @@
 
 
 export const CardRecipe = ({ recipes }) => {
-  // console.log(recipes)
     
   return (
-    <div className="d-flex flex-row">
+    <div className="row row-cols-3 row-cols-sm-4 g-4 justify-content-center">
         {
         recipes.map(recipe => (
-        <div key={recipe.id} className="card my-3 mx-4 w-75" >
-          <h4 className="card-title">{recipe.title}</h4>
-          <div>
+        <div key={recipe.id} className="card mx-4 col py-2" >
+          <h6 className="card-title">{recipe.title}</h6>
+          <a href={recipe.sourceUrl}>
             <img 
               src={recipe.url} 
               alt={recipe.sourceName} 
               className="card-img"
+              
             />
-          </div>
+          </a>
         </div>
         ))
       }

@@ -1,20 +1,11 @@
 import { useEffect, useState } from 'react';
 import { CardRecipe, SearchRecipes } from './components';
-import { getRecipes } from './helpers/getRecipes';
+import { useRecipes } from './hooks/useRecipes';
+
 
 function App() {
 
-  const [recipes, setRecipes] = useState([]);
-  const [query, setQuery] = useState('');
-
-  const onNewSearch = ( newQuery ) => {
-    setQuery( newQuery );
-  }
-  const allRecipes = async(searhQuery) => {
-     const res = await getRecipes(searhQuery)
-     setRecipes(res)
-  }
-
+  const {allRecipes, onNewSearch, query, recipes} = useRecipes()
 
   useEffect(() => {
     allRecipes(query);
@@ -23,8 +14,15 @@ function App() {
 
   return (
     <>
-      <h1 className="display-1 text-succes  ">Recipes</h1>
+      <div className="my-3 d-flex justify-content-center">
+        <img src="/src/assets/icons8-recipe-book-64.png" 
+          className="img-fluid "
+        />
+        <h1 className="display-1 text-success ms-5">Recipes Ideas</h1>
+      </div>
       <hr />
+      
+      
       <SearchRecipes  onNewSearch={onNewSearch} />
       <CardRecipe recipes={recipes} />
       
