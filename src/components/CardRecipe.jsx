@@ -6,17 +6,20 @@ export const CardRecipe = ({ recipes }) => {
     <div className="row row-cols-3 row-cols-sm-4 g-4 justify-content-center">
         {
         recipes.map(recipe => (
-        <div key={recipe.id} className="card mx-4 col py-2" >
+        <a 
+          key={recipe.id} 
+          href={recipe.sourceUrl}
+          className="card mx-4 col py-2" >
           <h6 className="card-title">{recipe.title}</h6>
-          <a href={recipe.sourceUrl}>
+          <div >
             <img 
               src={recipe.url} 
               alt={recipe.sourceName} 
               className="card-img"
               
             />
-          </a>
-        </div>
+          </div>
+        </a>
         ))
       }
     </div>
