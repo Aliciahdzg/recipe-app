@@ -1,7 +1,7 @@
 
 
 export const CardRecipe = ({ recipes }) => {
-    
+    console.log(recipes);
   return (
     <div className="row row-cols-3 row-cols-sm-4 g-4 justify-content-center">
         {
@@ -16,7 +16,6 @@ export const CardRecipe = ({ recipes }) => {
               src={recipe.url} 
               alt={recipe.sourceName} 
               className="card-img"
-              
             />
           </div>
         </a>

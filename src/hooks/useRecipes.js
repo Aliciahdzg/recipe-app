@@ -10,8 +10,14 @@ export const useRecipes = () => {
       setQuery( newQuery );
     }
     const allRecipes = async(searhQuery) => {
-       const res = await getRecipes(searhQuery)
-       setRecipes(res)
+      try {
+        const res = await getRecipes(searhQuery)
+        setRecipes(res)
+      }
+      catch (err) {
+        console.error(err)
+      }
+       
     }
   
     return {
