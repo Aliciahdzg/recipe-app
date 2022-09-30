@@ -15,8 +15,11 @@ function App() {
   return (
     <>
       <div className="my-3 d-flex justify-content-center">
-        <img src="/src/assets/icons8-recipe-book-64.png" 
+        <img 
+          src="/src/assets/icons8-recipe-book-64.png" 
+          alt="icon"
           className="img-fluid "
+          type="image/png"
         />
         <h1 className="display-1 text-success ms-5">Recipes Ideas</h1>
       </div>
