@@ -1,0 +1,15 @@
+version: "1.0.0"
+
+services:
+  app: 
+    container_name: recipe-app
+    image: recipeapp
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      # target: development
+    # volumes:
+    #   - ./src:/app/src
+    ports:
+      - 80:80
